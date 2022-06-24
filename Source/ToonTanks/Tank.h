@@ -38,7 +38,11 @@ private:
 
 	void Move(float Value);
 	void Turn(float Value);
+	void MouseX(float Value);
 
 public:
 	virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 };

@@ -16,6 +16,12 @@ public:
 	// Sets default values for this pawn's properties
 	ABaseTurret();
 
+protected:
+	void RotateTurret(FVector LookAtTarget);
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class UStaticMeshComponent *TurretMesh;
+
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UCapsuleComponent *CapsuleComponent;
@@ -23,13 +29,8 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class UStaticMeshComponent *BaseMesh;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	class UStaticMeshComponent *TurretMesh;
+	
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	class USceneComponent *ProjectileSpawnPoint;
-
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 };

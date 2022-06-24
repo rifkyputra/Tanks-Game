@@ -30,8 +30,11 @@ ABaseTurret::ABaseTurret()
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
-// Called every frame
-void ABaseTurret::Tick(float DeltaTime)
+void ABaseTurret::RotateTurret(FVector LookAtTarget)
 {
-	Super::Tick(DeltaTime);
+	FVector ToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
+
+	FRotator LookRotation = FRotator(0.f, ToTarget.Rotation().Yaw, 0.f);
+
+	TurretMesh->SetWorldRotation(LookRotation);
 }
